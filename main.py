@@ -22,7 +22,17 @@ while running:
     for event in pygame.event.get(): # events
         if event.type == pygame.QUIT:
             running = False
-    for y in range(149, -1, -1):
+
+    is_pressed = pygame.mouse.get_pressed() # mouse button press detection
+    if is_pressed[0] == True:
+        mouse_x, mouse_y = pygame.mouse.get_pos()
+        x = mouse_x // BLOCK_SIZE
+        y = mouse_y // BLOCK_SIZE
+        if x >= 0 and x < 200:
+            if y >= 0 and y < 150:
+                grid[y][x] = 1
+
+    for y in range(149, -1, -1): # sand physics simulation
         for x in range(200):
             if y == 149: continue
             if grid[y][x] == 1:
