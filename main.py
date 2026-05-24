@@ -1,4 +1,4 @@
-import pygame
+import pygame, random
 
 pygame.init()
 
@@ -22,14 +22,45 @@ while running:
     for event in pygame.event.get(): # events
         if event.type == pygame.QUIT:
             running = False
-    
+    for y in range(149, -1, -1):
+        for x in range(200):
+            if y == 149: continue
+            if grid[y][x] == 1:
+                if grid[y+1][x] == 0:
+                    grid[y+1][x] = 2
+                    grid[y][x] = 0
+                elif x == 0:
+                    if grid[y+1][x+1] == 0:
+                        grid[y+1][x+1] = 2
+                        grid[y][x] = 0
+                elif x == 199:
+                    if grid[y+1][x-1] == 0:
+                        grid[y+1][x-1] = 2
+                        grid[y][x] = 0
+                elif grid[y+1][x-1] == 0 and grid[y+1][x+1] == 0:
+                    rnd_num = random.randint(0,1)
+                    if rnd_num == 0:
+                        grid[y+1][x-1] = 2
+                        grid[y][x] = 0
+                    else:
+                        grid[y+1][x+1] = 2
+                        grid[y][x] = 0
+                elif grid[y+1][x-1] == 0:
+                    grid[y+1][x-1] = 2
+                    grid[y][x] = 0
+                elif grid[y+1][x+1] == 0:
+                    grid[y+1][x+1] = 2
+                    grid[y][x] = 0
+    screen.fill((0,0,0))
     for y in range(150): # rendering
         for x in range(200):
             if grid[y][x] == 1 or grid[y][x] == 2:
                 screen_x = x * BLOCK_SIZE
                 screen_y = y * BLOCK_SIZE
                 pygame.draw.rect(screen, (255, 0, 0), (screen_x, screen_y, BLOCK_SIZE, BLOCK_SIZE))
-    
+    for y in range(150):
+        for x in range(200):
+            if grid[y][x] == 2: grid[y][x] = 1
     pygame.display.flip()
     clock.tick(60)
 pygame.quit()
