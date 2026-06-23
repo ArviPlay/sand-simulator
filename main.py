@@ -8,6 +8,7 @@ pygame.display.set_caption("Sand Simulator")
 
 clock = pygame.time.Clock()
 FPS = 60
+SAND_COLOR = (255, 200, 100)
 
 grid = []
 for y in range(150): # create a 2d grid
@@ -67,7 +68,7 @@ while running:
             if grid[y][x] == 1 or grid[y][x] == 2:
                 screen_x = x * BLOCK_SIZE
                 screen_y = y * BLOCK_SIZE
-                pygame.draw.rect(screen, (255, 0, 0), (screen_x, screen_y, BLOCK_SIZE, BLOCK_SIZE))
+                pygame.draw.rect(screen, SAND_COLOR, (screen_x, screen_y, BLOCK_SIZE, BLOCK_SIZE))
     for y in range(150):
         for x in range(200):
             if grid[y][x] == 2: grid[y][x] = 1
