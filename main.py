@@ -72,5 +72,5 @@ while running:
         for x in range(200):
             if grid[y][x] == 2: grid[y][x] = 1
     pygame.display.flip()
-    clock.tick(60)
+    clock.tick(FPS)
 pygame.quit()
