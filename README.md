@@ -1,40 +1,40 @@
-# Симулятор песка
+# Sand Simulator
 
-Симулятор физики песка на python и pygame
+sand physics simulator in python with pygame
 
-## Инструкция по запуску
+## how to run
 
-1. клонируй репозиторий:
+1. clone the repository
     ```
     git clone https://github.com/ArviPlay/sand-simulator.git
     ```
-2. зайди в папку:
+2.  navigate to the folder:
     ```
     cd sand-simulator
     ```
-3. создай виртуальное окружение:
+3. create a virtual environment:
     ```
     python -m venv venv
     ```
-    активируй его:
+    activate it:
 
-    - для линукса или мака:
+    - Linux, MacOS:
         ```
         source venv/bin/activate
         ```
     
-    - для виндовс:
+    - Windows:
         ```
         venv\Scripts\activate
         ```
-4. установи зависимости:
+4. install dependencies:
     ```
     pip install -r requirements.txt
     ```
-5. запускай
+5. run it
     ```
     python main.py
     ```
 
-## управление
-* зажатая лкм - рисовать песком
+## controls
+* LMB - spawn sand
